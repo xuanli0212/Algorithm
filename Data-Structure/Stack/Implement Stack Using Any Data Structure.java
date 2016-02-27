@@ -1,5 +1,5 @@
 class Stack {
-    
+    //Using ArrayList, which length is not fixed
     private List<Integer> stackArray = new ArrayList<Integer>();
     
     // Push a new item into the stack
@@ -19,6 +19,7 @@ class Stack {
     }
 
     // Return the top of the stack
+    //Pay attention here, int is primitive type so you should only return int type. No return null allowed. (null is object)
     public int top() {
         int size = stackArray.size();
         int topEle = stackArray.get(size-1);
