@@ -12,7 +12,7 @@
  * }
  */ 
  
- ## Version 1 : Moving Head One by One using iterative method
+ // Version 1 : Moving Head One by One using iterative method
 public class Solution {
     /**
      * @param head: The head of linked list.
@@ -32,7 +32,7 @@ public class Solution {
     }
 }
 
-##Version 2:  Moving pointer and finally set head
+//Version 2:  Moving pointer and finally set head
 public class Solution {
     /**
      * @param head: The head of linked list.
