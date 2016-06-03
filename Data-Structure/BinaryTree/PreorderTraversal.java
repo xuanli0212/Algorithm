@@ -16,18 +16,16 @@ public class Solution {
      */
     public ArrayList<Integer> preorderTraversal(TreeNode root) {
         // write your code here
-       ArrayList<Integer> result = new ArrayList<Integer>();
-        if(root == null){
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if (root == null) {
             return result;
         }
-        
+        result.add(root.val);
         ArrayList<Integer> leftList = preorderTraversal(root.left);
         ArrayList<Integer> rightList = preorderTraversal(root.right);
-        
-        result.add(root.val);
+        //result.add(root.val);
         result.addAll(leftList);
         result.addAll(rightList);
         return result;
-        
     }
 }
