@@ -18,26 +18,24 @@ public class Solution {
      */
     public List<String> binaryTreePaths(TreeNode root) {
         // Write your code here
-       
         List<String> path = new ArrayList<String>();
-        
-        if (root == null ){
+        if (root == null) {
             return path;
         }
         List<String> left = binaryTreePaths(root.left);
         List<String> right = binaryTreePaths(root.right);
-        if(root.left == null && root.right == null){
-            left.add (String.valueOf(root.val));
+        if (root.left == null && root.right == null) {
+            left.add(String.valueOf(root.val));
             //right.add(String.valueOf(root.val));
         }
-        if(root.left != null  ){
-            for(int i = 0; i < left.size(); i++){
+        if (root.left != null) {
+            for (int i = 0; i < left.size(); i++){
                 String temp = left.get(i);
-                left.set(i,String.valueOf(root.val) + "->" + temp);
+                left.set(i, String.valueOf(root.val) + "->" + temp);
             }
         }
-        if(root.right != null){
-             for(int i = 0; i < right.size(); i++){
+        if (root.right != null) {
+            for (int i = 0; i < right.size(); i++) {
                 String temp = right.get(i);
                 right.set(i, String.valueOf(root.val) + "->" + temp);
             }
@@ -45,6 +43,5 @@ public class Solution {
         path.addAll(left);
         path.addAll(right);
         return path;
-       
     }
 }
