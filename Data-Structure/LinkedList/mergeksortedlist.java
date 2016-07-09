@@ -59,3 +59,52 @@ public class Solution {
         return dummy.next;
     }
 }
+/*
+*Version2 : Using Priorty Queue
+*/
+/**
+ * Definition for ListNode.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int val) {
+ *         this.val = val;
+ *         this.next = null;
+ *     }
+ * }
+ */ 
+public class Solution {
+    /**
+     * @param lists: a list of ListNode
+     * @return: The head of one sorted list.
+    */
+     // New Comparator to deal with null issues and set customerized compare    method
+    private Comparator<ListNode> listComparator = new Comparator<ListNode>(){
+        public int compare(ListNode list1, ListNode list2) {
+            return list1.val - list2.val;
+        }
+    };
+    public ListNode mergeKLists(List<ListNode> lists) {  
+        // write your code here
+        if (lists == null || lists.size() == 0) {
+            return null;
+        }
+        Queue<ListNode> heaplist = new PriorityQueue<ListNode>(lists.size(), listComparator);
+        for (int i = 0; i < lists.size(); i++) {
+            if (lists.get(i) != null) {
+                heaplist.offer(lists.get(i));
+            }
+        }
+        ListNode dummy = new ListNode(0);
+        ListNode head = dummy;
+        while (heaplist.size() > 0) {
+            ListNode cur = heaplist.poll();
+            head.next = cur;
+            head = head.next;
+            if (cur.next != null) {
+                heaplist.add(cur.next);
+            }
+        }
+        return dummy.next;
+    }
+}
