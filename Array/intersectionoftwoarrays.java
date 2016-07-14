@@ -76,3 +76,54 @@ public class Solution {
         return result;
     }
 }
+/* Method3: Sort + Binary Search
+*
+*/
+public class Solution {
+    /**
+     * @param nums1 an integer array
+     * @param nums2 an integer array
+     * @return an integer array
+     */
+    public int[] intersection(int[] nums1, int[] nums2) {
+        // Write your code here
+        if (nums1.length == 0 || nums2.length == 0 || nums1 == null || nums2 == null) {
+            return new int[0];
+        }
+        Arrays.sort(nums1);
+        HashSet<Integer> result = new HashSet<Integer>();
+        for (int i = 0; i < nums2.length; i++) {
+            if (binarySearch(nums1, nums2[i])) {
+                result.add(nums2[i]);
+            }
+        }
+        int[] list = new int[result.size()];
+        int j = 0;
+        for (Integer num : result) {
+            list[j] = num;
+            j++;
+        }
+        return list;
+    }
+    private boolean binarySearch(int[] source, int target) {
+        int start = 0;
+        int end = source.length - 1;
+        while (start + 1 < end) {
+            int mid = start + (end - start) / 2;
+            if (source[mid] == target) {
+                return true;
+            }else if (source[mid] > target) {
+                end = mid;
+            }else {
+                start = mid;
+            }
+        }
+        if (source[start] == target) {
+            return true;
+        }
+        if (source[end] == target) {
+            return true;
+        }
+        return false;
+    }
+}
