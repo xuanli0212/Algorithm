@@ -7,18 +7,21 @@ class Solution {
      */
     public void mergeSortedArray(int[] A, int m, int[] B, int n) {
         // write your code here
-        int i = m;
-        int j = n;
-        int index = m + n;
-        while (j > 0) {
-            if (i > 0 && A[i - 1] >= B[j - 1]) {
-                A[index - 1] = A[i - 1];
-                i--;
+        int i = m - 1;
+        int j = n - 1;
+        int index = m + n -1;
+        while (j >= 0 && i >= 0) {
+            if (A[i] >= B[j]) {
+                A[index--] = A[i--];
             }else {
-                A[index - 1] = B[j - 1];
-                j--;
+                A[index--] = B[j--];
             }
-            index--;
+        }
+        while (i >= 0) {
+            A[index--] = A[i--];
+        }
+        while (j >= 0) {
+            A[index--] = B[j--];
         }
     }
 }
