@@ -6,15 +6,10 @@ class Solution {
      */
     public int[] topk(int[] nums, int k) {
         // Write your code here
-        ArrayList<Integer> resultList = new ArrayList<Integer>();
+       int[] result = new int[k];
         quicksort(nums, 0, nums.length - 1);
         for (int i = 0; i < k && i < nums.length; i++) {
-            resultList.add(nums[i]);
-        }
-        Collections.sort(resultList, Collections.reverseOrder());
-        int[] result = new int[resultList.size()];
-        for (int i = 0; i < resultList.size(); i++) {
-            result[i] = resultList.get(i);
+            result[i] = nums[i];
         }
         return result;
    }
