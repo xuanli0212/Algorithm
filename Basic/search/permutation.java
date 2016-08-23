@@ -20,6 +20,8 @@ class Solution {
         // list size == nums size return
         if (list.size() == nums.size()) {
            result.add(new ArrayList<Integer>(list));
+           //注意要return
+           return;
         }
         for (int i = 0; i < nums.size(); i++) {
             if (visited[i] == 1) {
