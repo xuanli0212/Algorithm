@@ -28,6 +28,9 @@ class Solution {
         }
         if (list.size() == nums.size()){
             result.add(new ArrayList<Integer>(list));
+            //注意要return
+            return；
+            
         }
     }
 }
