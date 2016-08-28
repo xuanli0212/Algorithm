@@ -16,6 +16,7 @@ public class Solution {
             System.out.println(num);
             int min = sticks.get(num - 1);
             //System.out.println(min);
+            //注意这里，num不断地减小，要单独保存一个num。否则就无法遍历所有的数值。
             int size = num;
             for (int i = 0; i < size; i++) {
                 int newValue = sticks.get(i) - min;
